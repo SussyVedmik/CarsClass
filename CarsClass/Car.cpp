@@ -31,10 +31,22 @@ Car::~Car()
 
 void Car::Input()
 {
+	cout << "Enter car model: ";
+	cin >> model;
+	cout << "\nEnter car color: ";
+	cin >> color;
+	cout << "\nEnter car year: ";
+	cin >> year;
+	cout << "\nEnter car price: ";
+	cin >> price;
 }
 
 void Car::Print()
 {
+	cout << "Model - " << model << endl;
+	cout << "Color - " << color << endl;
+	cout << "Year - " << year << endl;
+	cout << "Price - " << price << endl;
 }
 
 char* Car::GetModel()
@@ -59,7 +71,13 @@ double Car::GetPrice()
 
 void Car::SetModel(const char* m)
 {
-
+	if (model != nullptr)
+	{
+		cout << model << "... delete\n";
+		delete[]model;
+	}
+	this->model = new char[strlen(m) + 1];
+	strcpy_s(model, strlen(m) + 1, m);
 }
 
 void Car::SetColor(const char* c)
@@ -75,6 +93,9 @@ void Car::SetColor(const char* c)
 
 void Car::SetYear(int y)
 {
+	
+	
+	
 }
 
 void Car::SetPrice(double pr)
